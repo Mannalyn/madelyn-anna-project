@@ -4,8 +4,13 @@ import styles from "./page.module.css";
 
 function Story() {
     const [fillInWords, changeFillInWords] = useState({
+        adjective1: "adjective",
         noun1: "noun",
-        pastTenseVerb1: "past-tense verb"
+        verb1: "verb",
+        pluralNoun1: "plural noun",
+        verb2: "verb",
+        pluralNoun2: "plural noun",
+        adverb1: "adverb"
     });
 
     const [currentInput, updateCurrentInput] = useState("");
@@ -58,7 +63,14 @@ function Story() {
                 "display": phase == 0 ? "none" : "block"
             }}>
                 <p>
-                    The <Word wordKey="noun1" /> <Word wordKey="pastTenseVerb1" /> down the street.
+                    Once upon a time, there was a/an <Word wordKey="adjective1" /> <Word wordKey="noun1" />.
+                    It loved to <Word wordKey="verb1" />.
+                    But one day, it went to the park, and it saw <Word wordKey="pluralNoun1" /> all over the ground.
+                    It decided to <Word wordKey="verb2" /> it up.
+                    But when it tried to, it just made a bigger mess.
+                    So it tried throwing <Word wordKey="pluralNoun2" /> at the ground.
+                    And the mess <Word wordKey="adverb1" /> disappeared.
+                    The end.
                 </p>
             </div>
         </>
