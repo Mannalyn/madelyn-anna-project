@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Lexend } from "next/font/google";
 
-const lexend = Lexend({
+export const lexend = Lexend({
     weight: ["400"],
     subsets: ["latin"]
 })

@@ -1,6 +1,7 @@
 "use client"
 import { useState } from "react";
 import styles from "./page.module.css";
+import { lexend } from "./layout.js";
 
 function Story() {
     const [fillInWords, changeFillInWords] = useState({
@@ -34,7 +35,7 @@ function Story() {
                 "display": phase == 0 ? "block" : "none"
             }}>
                 <p>Current word: {fillInWords[currentWord]}</p>
-                <input value={currentInput} onChange={e => updateCurrentInput(e.target.value)} />
+                <input value={currentInput} onChange={e => updateCurrentInput(e.target.value)} className={lexend.className} />
                 <button onClick={() => {
                     changeFillInWords(() => {
                         const updatedArray = Object.entries(fillInWords).map(i => i[0].toString() == currentWord.toString() ? [i[0], currentInput] : i);
@@ -56,11 +57,13 @@ function Story() {
                     }
                 }} style={{
                     margin: "20px"
-                }}>Save</button>
+                }} className={lexend.className}>Save</button>
             </div>
 
             <div style={{
-                "display": phase == 0 ? "none" : "block"
+                "display": phase == 0 ? "none" : "block",
+                "width": "50vw",
+                "margin": "auto"
             }}>
                 <p>
                     Once upon a time, there was a/an <Word wordKey="adjective1" /> <Word wordKey="noun1" />.
