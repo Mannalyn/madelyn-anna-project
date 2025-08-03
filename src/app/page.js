@@ -5,7 +5,7 @@ import styles from "./page.module.css";
 function Story() {
     const [fillInWords, changeFillInWords] = useState({
         noun1: "noun",
-        verb1: "verb"
+        pastTenseVerb1: "past-tense verb"
     });
 
     const [currentInput, updateCurrentInput] = useState("");
@@ -58,7 +58,7 @@ function Story() {
                 "display": phase == 0 ? "none" : "block"
             }}>
                 <p>
-                    The <Word wordKey="noun1" /> <Word wordKey="verb1" /> down the street.
+                    The <Word wordKey="noun1" /> <Word wordKey="pastTenseVerb1" /> down the street.
                 </p>
             </div>
         </>
