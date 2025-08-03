@@ -29,33 +29,40 @@ function Story() {
         );
     }
 
+    function handleSave() {
+        changeFillInWords(() => {
+            const updatedArray = Object.entries(fillInWords).map(i => i[0].toString() == currentWord.toString() ? [i[0], currentInput] : i);
+
+            let newObj = {};
+            for (let i of updatedArray) {
+                newObj[i[0]] = i[1];
+            }
+
+            return newObj;
+        });
+
+        updateCurrentInput("");
+
+        if (Object.keys(fillInWords).indexOf(currentWord) < Object.keys(fillInWords).length - 1) {
+            changeCurrentWord(Object.keys(fillInWords)[Object.keys(fillInWords).indexOf(currentWord) + 1]);
+        } else {
+            changePhase(1);
+        }
+    }
+
     return (
         <>
             <div style={{
                 "display": phase == 0 ? "block" : "none"
             }}>
                 <p>Current word: {fillInWords[currentWord]}</p>
-                <input value={currentInput} onChange={e => updateCurrentInput(e.target.value)} className={lexend.className} />
-                <button onClick={() => {
-                    changeFillInWords(() => {
-                        const updatedArray = Object.entries(fillInWords).map(i => i[0].toString() == currentWord.toString() ? [i[0], currentInput] : i);
-
-                        let newObj = {};
-                        for (let i of updatedArray) {
-                            newObj[i[0]] = i[1];
-                        }
-
-                        return newObj;
-                    });
-
-                    updateCurrentInput("");
-
-                    if (Object.keys(fillInWords).indexOf(currentWord) < Object.keys(fillInWords).length - 1) {
-                        changeCurrentWord(Object.keys(fillInWords)[Object.keys(fillInWords).indexOf(currentWord) + 1]);
-                    } else {
-                        changePhase(1);
+                <input value={currentInput} onChange={e => updateCurrentInput(e.target.value)} className={lexend.className} onKeyDown={
+                e => {
+                    if (e.key == "Enter") {
+                        handleSave()
                     }
-                }} style={{
+                }} />
+                <button onClick={handleSave} style={{
                     margin: "20px"
                 }} className={lexend.className}>Save</button>
             </div>
