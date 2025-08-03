@@ -24,7 +24,7 @@ function Story() {
         return (
             <span style={{
                 textDecoration: "underline",
-                color: "#e175ff"
+                color: "#2cd743ff"
             }}>{fillInWords[wordKey]}</span>
         );
     }
