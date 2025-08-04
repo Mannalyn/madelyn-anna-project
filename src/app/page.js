@@ -4,7 +4,6 @@ import styles from "./page.module.css";
 import { lexend } from "./layout.js";
 
 function Story({ chosenStory }) {
-    
     if (chosenStory != "none") {
         function Word({ wordKey }) {
             return (
