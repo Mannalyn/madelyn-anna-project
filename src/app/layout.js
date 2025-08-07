@@ -6,6 +6,10 @@ export const lexend = Lexend({
     subsets: ["latin"]
 });
 
+// export const metadata = {
+//     "title": "Mannalibs | Mannalyn"
+// }
+
 export default function RootLayout({ children }) {
     return (
         <>
